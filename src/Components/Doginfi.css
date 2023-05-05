@@ -1,4 +1,13 @@
     .img {
         height: 400px;
         width: 400px;
+        box-shadow: 4px 2px 2px 2px black;
+        border: 2px solid black;
+    }
+    
+    .btn {
+        height: 50px;
+        width: 300px;
+        background-color: cadetblue;
+        box-shadow: 4px 2px 2px 2px black;
     }

@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './Doginfi.css'
-export default function Doginfo() {
-    
+import axios from 'axios'
+export default function Doginfo() { 
     const [image,setImage] = useState(' ');
     const getDog = async ()=>{
+
         try
         {
-            const response = fetch('https://dog.ceo/api/breeds/image/random');
-            const data =await (await response).json();
-            setImage(data.message)
+         
+          const response= await axios.get('https://dog.ceo/api/breeds/image/random')
+         
+           
+           
+               setImage(response.data.message)
+            
         }
         catch (error){
             console.log(error)
         }
-
-  
-    //  console.log({data})
+       
     }
 
     useEffect(() =>{
@@ -25,7 +28,9 @@ export default function Doginfo() {
     <div>
       
         <img className='img' src={image} alt="dog"/> 
-      {/* <button onClick={getDog}>get dog</button> */}
+        <br></br>
+        <br></br>
+      <button className='btn' onClick={getDog}>get dog image</button>
     </div>
   )
 }
